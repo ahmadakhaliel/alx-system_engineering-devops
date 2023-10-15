@@ -1,2 +1,6 @@
 #!/bin/bash
-printf "%o\n" $(( $((5#(echo $WATER | tr water 01234))) + $((5#(echo $STIR | tr stir. 01234))) )) | tr 01234567 bestchol
+decimal_water=$(echo $WATER | tr water 01234)
+decimal_stir=$(echo $STIR | tr stir. 01234)
+decimal_result=$((decimal_water + decimal_stir))
+bestchol_result=$(printf "%o\n" $decimal_result | tr 01234567 bestchol)
+echo "The result is: $bestchol_result"
